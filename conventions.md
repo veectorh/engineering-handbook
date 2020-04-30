@@ -192,13 +192,56 @@ story/DT-1048-resources-rest-endpoints
 
 ### Commit Message
 ***
-A commit message consists of a **header**, a **body** and a **footer**, separated by a blank line.
+#### Keywords
+***
+- MUST/REQUIRED/SHALL - Indicate that the definition stated is an absolute requirement.
+
+- MUST NOT/SHALL NOT - Indicate that the definition stated is an absolute prohibition.
+
+- SHOULD/RECOMMENDED - Indicate that the definition stated can be valid under certain conditions.
+
+- SHOULD NOT/NOT RECOMMENDED - Indicate that the definition can be valid, but is not advised.
+
+- MAY/OPTIONAL - Indicates that a definition is totally optional.
+
+- BREAKING CHANGES - Refer to changes that may cause partial or total system failure.
+
+A more detailed explanation of the keywords can be found at https://www.ietf.org/rfc/rfc2119.txt
+
+#### Specifications
+- Commits MUST be prefixed with a type, e.g `feat`, `fix`, etc., followed by an OPTIONAL scope, and a `:` and space.{All types adopted by Sedronik are listed in ####<type>)
+
+- Type `feat` MUST be used to when a new feature is being added.
+
+- Type `fix` must be used to indicate a bug fix.
+
+- A scope MAY be provided after a type. A scope MUST consist of a noun describing a section of the codebase surrounded by parenthesis, e.g., `fix(parser):`
+
+- A description MUST immediately follow the space after the type/scope prefix. The description is a short summary of the code changes, e.g., fix: array parsing issue when multiple spaces were contained in string.
+
+- A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. 
+
+- The body MUST begin one blank line after the description.
+
+- A footer of one or more lines MAY be provided one blank line after the body. The footer MUST contain meta-information about the commit, e.g., related pull-requests, reviewers, breaking changes, with one piece of meta-information per-line.
+
+- Breaking changes MUST be indicated at the very beginning of the body section, or at the beginning of a line in the footer section. A breaking change MUST consist of the uppercase text BREAKING CHANGE, followed by a colon and a space. 
+
+- A description MUST be provided after the `BREAKING CHANGE:`, describing what has changed about the API, e.g., BREAKING CHANGE: environment variables now take precedence over config files.
+
+- Types other than `feat` and `fix` MAY be used in your commit messages.
+
+- The BREAKING CHANGE descriptor must be in capital letters.
+
+- A `!` MAY be appended prior to the : in the type/scope prefix, to further draw attention to breaking changes. `BREAKING CHANGE: description` MUST also be included in the body or footer, along with the `!` in the prefix.
+
+A commit message MUST follow the required structure `<type> ([optional scope]: <description>)`, `[optional body]`, `[optional footer]` all separated by a blank line.
 
 Any line of the commit message cannot be longer than **100 characters!** This allows the message to be easier to read on github as well as in various git tools.
 ```
 <issue ID>-<type>(<scope>): <subject>
 <BLANK LINE>
-<body>
+<body>[optional]
 <BLANK LINE>
 <footer>
 ```
